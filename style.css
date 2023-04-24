@@ -1,5 +1,37 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .etch-heading {
     padding: 10px;
     text-align: center;
     color: rebeccapurple;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 400px;
+    margin-bottom: 20px;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 400px;
+    margin-top: 20px;
+}
+
+.board {
+    width: 500px;
+    height: 500px;
+    display: grid;
+    border: 1px solid black;
 }
