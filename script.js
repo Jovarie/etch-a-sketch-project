@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// style this input box as well as delete this comment after
 
 let btn_popup = document.querySelector("#popup");
     btn_popup.addEventListener("click", function() {
