@@ -1,13 +1,34 @@
 document.addEventListener('DOMContentLoaded', function() {
     // default size of board
-    createBoard(16)
+    createBoard(16);
     // eventListener for size input and create board function
     let btn_popup = document.querySelector("#popup");
     btn_popup.addEventListener("click", function() {
-        let size = getSize();
+        let sizeInput = document.querySelector("#size-input");
+        let size = sizeInput.value;
         createBoard(size);
-    })
-})
+    });
+});
+
+
+let btn_popup = document.querySelector("#popup");
+    btn_popup.addEventListener("click", function() {
+        let sizeInput = document.querySelector("#size-input");
+        let size = sizeInput.value;
+        createBoard(size);
+    });
+
+
+    // add hover effect to board
+    let board = document.querySelector(".board");
+    board.addEventListener("mouseover", function(event) {
+        // check if the event target is a div element
+        if (event.target.matches("div")) {
+            // change the background color of the div to black
+            event.target.style.backgroundColor = "black";
+        }
+    });
+
 
 function createBoard(size) {
     let board = document.querySelector(".board");
@@ -29,7 +50,7 @@ function createBoard(size) {
 function getSize() {
     let input = prompt("what will be the size of your masterpiece?");
     let message = document.querySelector("#message");
-    // this if statement depending on the s=user input will display a message
+    // this if statement depending on the user input will display a message
     if (input == "") {
         message.innerHTML = "please provide a number";
     } else if (input < 0 || input > 100 ) {
