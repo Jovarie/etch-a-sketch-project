@@ -1,34 +1,16 @@
+// Global variable
+let color = "black";
+
 document.addEventListener('DOMContentLoaded', function() {
     // default size of board
-    createBoard(16);
+    createBoard(16)
     // eventListener for size input and create board function
     let btn_popup = document.querySelector("#popup");
     btn_popup.addEventListener("click", function() {
-        let sizeInput = document.querySelector("#size-input");
-        let size = sizeInput.value;
+        let size = getSize();
         createBoard(size);
-    });
-});
-
-// style this input box as well as delete this comment after
-
-let btn_popup = document.querySelector("#popup");
-    btn_popup.addEventListener("click", function() {
-        let sizeInput = document.querySelector("#size-input");
-        let size = sizeInput.value;
-        createBoard(size);
-    });
-
-
-    // add hover effect to board
-    let board = document.querySelector(".board");
-    board.addEventListener("mouseover", function(event) {
-        // check if the event target is a div element
-        if (event.target.matches("div")) {
-            // change the background color of the div to black
-            event.target.style.backgroundColor = "black";
-        }
-    });
+    })
+})
 
 
 function createBoard(size) {
@@ -41,8 +23,7 @@ function createBoard(size) {
     // This loop creates a set of div elements with the specified number, which can be used to create a grid
     for ( let i = 0; i < numDivs; i++) {
         let div = document.createElement("div");
-        // color of the div
-        // div.style.backgroundColor = "yellow";
+        div.addEventListener("mouseover", colorDiv)
         board.insertAdjacentElement("beforeend", div);
     }
 }
@@ -60,4 +41,23 @@ function getSize() {
         message.innerHTML = "Now let's play!"
         return input;
     }
+}
+
+function colorDiv () {
+    // if random button is selected choose a random color using hsl random color generator
+    if (color == "random") {
+        this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`
+    }
+    else {
+        this.style.backgroundColor = 'black'
+    }
+}
+
+function setColor (colorChoice) {
+     color = colorChoice;
+}
+// resets the colors by selecting all the divs and changing their color's to white
+function resetBoard() {
+    let divs = document.querySelectorAll("div")
+    divs.forEach((div) => div.style.backgroundColor = "white")
 }

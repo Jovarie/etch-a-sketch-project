@@ -14,9 +14,7 @@
 <body>
     <h1 class="etch-heading">Etch-A-Sketch</h1>
     <div class="header">
-        <h4>Select the size of your grid</h4>
-        <!-- style this button using either dom manipulation or css, then delete this comment as its not relevant its just a reminder. -->
-        <input type="number" id="size-input" />
+        <h4>Select the size</h4>
         <button  id="popup" class="btn btn-success">Select</button>
     </div>
     <!-- message if input is null -->
@@ -24,13 +22,13 @@
     <div class="board"></div>
 
     <div class="footer">
-        <button class="btn btn-dark">Black</button>
-        <button class="btn btn-warning">Random Color</button>
-        <button class="btn btn-danger">Erase</button>
+        <button class="btn btn-dark" onclick="setColor('black')">Black</button>
+        <button class="btn btn-warning" onclick="setColor('random')">Random</button>
+        <button class="btn btn-danger" onclick="resetBoard()">Erase</button>
     </div>
     <script src="script.js"></script>
 </body>
 </html>
 
 <!-- https://www.youtube.com/watch?v=0YjwdFT-O9Y&t=844s -->
-<!-- 27:03 -->
+<!-- 13:47 -->
