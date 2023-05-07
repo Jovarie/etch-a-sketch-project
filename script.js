@@ -6,8 +6,6 @@ let click = false;
 document.addEventListener('DOMContentLoaded', function(e) {
     // default size of board
     createBoard(16);
-<<<<<<< HEAD
-=======
 
     document.querySelector("body").addEventListener("click", function(e) {
         if(e.target.tagName != "BUTTON") {
@@ -23,7 +21,6 @@ document.addEventListener('DOMContentLoaded', function(e) {
         }
     })
 
->>>>>>> grid-branch
     // eventListener for size input and create board function
     let btn_popup = document.querySelector("#popup");
     btn_popup.addEventListener("click", function() {
