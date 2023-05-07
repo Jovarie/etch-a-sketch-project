@@ -1,9 +1,26 @@
-// Global variable
+// Global variables
 let color = "black";
+// click variable so user can only draw when mouse is clicked
+let click = false;
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function(e) {
     // default size of board
-    createBoard(16)
+    createBoard(16);
+
+    document.querySelector("body").addEventListener("click", function(e) {
+        if(e.target.tagName != "BUTTON") {
+            // different position of click if its true it'll become not true, if it's false it will become un-false
+            click = !click;
+            let draw = document.querySelector("#draw"); 
+            if (click) {
+                draw.innerHTML = "Now You Can Draw :)"
+            }
+            else {
+                draw.innerHTML = "You're Not Allowed To Draw yet.."
+            }
+        }
+    })
+
     // eventListener for size input and create board function
     let btn_popup = document.querySelector("#popup");
     btn_popup.addEventListener("click", function() {
@@ -44,13 +61,15 @@ function getSize() {
 }
 
 function colorDiv () {
+    if (click) {
     // if random button is selected choose a random color using hsl random color generator
     if (color == "random") {
         this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`
     }
     else {
         this.style.backgroundColor = 'black'
-    }
+        }
+    } 
 }
 
 function setColor (colorChoice) {
