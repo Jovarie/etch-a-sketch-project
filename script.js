@@ -61,15 +61,14 @@ function getSize() {
 }
 
 function colorDiv () {
-    if (click) {
+    if (click)
     // if random button is selected choose a random color using hsl random color generator
     if (color == "random") {
         this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`
     }
     else {
         this.style.backgroundColor = 'black'
-        }
-    } 
+    }
 }
 
 function setColor (colorChoice) {
