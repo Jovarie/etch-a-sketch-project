@@ -24,32 +24,10 @@ document.addEventListener('DOMContentLoaded', function(e) {
     // eventListener for size input and create board function
     let btn_popup = document.querySelector("#popup");
     btn_popup.addEventListener("click", function() {
-        let sizeInput = document.querySelector("#size-input");
-        let size = sizeInput.value;
+        let size = getSize();
         createBoard(size);
-    });
-});
-
-// style this input box as well as delete this comment after
-
-let btn_popup = document.querySelector("#popup");
-    btn_popup.addEventListener("click", function() {
-        let sizeInput = document.querySelector("#size-input");
-        let size = sizeInput.value;
-        createBoard(size);
-    });
-
-
-    // add hover effect to board
-    let board = document.querySelector(".board");
-    board.addEventListener("mouseover", function(event) {
-        // check if the event target is a div element
-        if (event.target.matches("div")) {
-            // change the background color of the div to black
-            event.target.style.backgroundColor = "black";
-        }
-    });
-
+    })
+})
 
 
 function createBoard(size) {
